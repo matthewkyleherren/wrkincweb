@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mobile Test</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            -webkit-overflow-scrolling: touch;
+        }
+        .test-section {
+            padding: 20px;
+            margin: 20px;
+            background: #f0f0f0;
+            border: 2px solid #333;
+            min-height: 200px;
+        }
+        button {
+            padding: 20px;
+            font-size: 18px;
+            margin: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .scrollable {
+            height: 100vh;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+        }
+        #result {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: yellow;
+            padding: 10px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div id="result">Tap anywhere or scroll to test...</div>
+
+    <div class="scrollable">
+        <div class="test-section">
+            <h1>Section 1</h1>
+            <button onclick="alert('Button 1 clicked!')">Click Me 1</button>
+            <p>Try scrolling down...</p>
+        </div>
+
+        <div class="test-section">
+            <h1>Section 2</h1>
+            <button onclick="alert('Button 2 clicked!')">Click Me 2</button>
+        </div>
+
+        <div class="test-section">
+            <h1>Section 3</h1>
+            <button onclick="alert('Button 3 clicked!')">Click Me 3</button>
+        </div>
+
+        <div class="test-section">
+            <h1>Section 4</h1>
+            <button onclick="alert('Button 4 clicked!')">Click Me 4</button>
+        </div>
+
+        <div class="test-section">
+            <h1>Section 5 - You scrolled!</h1>
+            <button onclick="alert('Button 5 clicked!')">Click Me 5</button>
+        </div>
+    </div>
+
+    <script>
+        let touchCount = 0;
+        let scrollCount = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchCount++;
+            document.getElementById('result').textContent =
+                `Touch detected! Touches: ${touchCount}, Scrolls: ${scrollCount}`;
+        });
+
+        document.addEventListener('scroll', function() {
+            scrollCount++;
+            document.getElementById('result').textContent =
+                `Scrolling works! Touches: ${touchCount}, Scrolls: ${scrollCount}`;
+        }, true);
+
+        document.addEventListener('click', function(e) {
+            document.getElementById('result').textContent =
+                `Click at ${e.clientX},${e.clientY} - Touches: ${touchCount}, Scrolls: ${scrollCount}`;
+        });
+    </script>
+</body>
+</html>

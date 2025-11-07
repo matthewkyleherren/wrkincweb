@@ -12,8 +12,13 @@
             -o-tab-size: 4;
             tab-size: 4
         }
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: visible
+        }
         body {
-            margin: 0
+            position: relative
         }
         b,
         strong {
@@ -156,6 +161,13 @@
             position: absolute;
             top: 0;
             width: 100%
+        }
+        @media (max-width: 767px) {
+            ._frameBorder_1h08d_9.abs-fill {
+                position: relative;
+                height: auto;
+                min-height: 100vh
+            }
         }
         .abs-center {
             left: 50%;
@@ -308,6 +320,10 @@
         }
         body {
             background-color: #fff
+        }
+        #__nuxt {
+            height: 100%;
+            position: relative
         }
         ._app_1f6y3_13._isCustomCursorEnabled_1f6y3_13 .button,
         ._app_1f6y3_13._isCustomCursorEnabled_1f6y3_13 a,
@@ -1584,3 +1600,44 @@
                                                                             white-space: pre
                                                                         }
                                                                     <span part="left"></span><span part="number" class="number"><span part="integer"><span class="digit" part="digit integer-digit">2</span><span class="digit" part="digit integer-digit">4</span></span><span part="fraction"></span></span><span part="right"></span>
+
+/* Mobile Fixes - Added to fix scrolling and touch interactions */
+@media (max-width: 767px) {
+    html {
+        height: 100%;
+        overflow-y: auto;
+    }
+    
+    body {
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    #__nuxt {
+        min-height: 100%;
+        overflow-y: auto;
+    }
+    
+    ._app_1f6y3_13 {
+        min-height: 100%;
+        overflow-y: auto;
+    }
+    
+    ._outer_1h08d_24 {
+        overflow: visible;
+        min-height: 100vh;
+    }
+    
+    ._inner_1h08d_32 {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: visible;
+    }
+    
+    /* Ensure all buttons and links are touchable */
+    a, button, .button {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+}
