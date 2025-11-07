@@ -1757,12 +1757,25 @@ span {
 
 /* Minimal mobile fix - enable scrolling without breaking layout */
 @media (max-width: 767px) {
-    ._outer_1h08d_24 {
+    html, body {
+        overflow: auto !important;
+        height: 100%;
+    }
+
+    ._frameBorder_1h08d_9 {
         overflow: visible !important;
     }
+
+    ._outer_1h08d_24 {
+        overflow: visible !important;
+        height: auto !important;
+        min-height: 100%;
+    }
+
     ._inner_1h08d_32 {
-        overflow-y: auto !important;
+        overflow-y: visible !important;
+        height: auto !important;
+        min-height: 100%;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
     }
 }
