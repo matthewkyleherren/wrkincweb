@@ -1754,3 +1754,12 @@ span {
 }
 .number,
 .digit {
+
+/* Minimal mobile fix - enable scrolling without breaking layout */
+@media (max-width: 767px) {
+    ._inner_1h08d_32 {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+}
