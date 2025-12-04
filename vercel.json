@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "fr.wrk.inc" }],
+      "destination": "/fr/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "de.wrk.inc" }],
+      "destination": "/de/:path*"
+    }
+  ]
+}
