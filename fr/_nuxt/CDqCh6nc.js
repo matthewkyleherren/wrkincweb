@@ -1,0 +1,1 @@
+import{j as r,k as t,q as s}from"./Bop2QIaf.js";const o={xmlns:"http://www.w3.org/2000/svg","xml:space":"preserve",viewBox:"0 0 9 7"};function c(n,e){return r(),t("svg",o,e[0]||(e[0]=[s("path",{d:"M8.9.1c-.2-.1-.6-.1-.8 0L3 5.3.9 3.1C.7 3 .3 3 .1 3.1s-.1.6 0 .8L3 6.7 8.9.8c.1-.1.1-.5 0-.7"},null,-1)]))}const l={render:c};export{l as default,c as render};
